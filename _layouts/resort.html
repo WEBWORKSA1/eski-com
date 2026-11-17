@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{% assign r = site.data.resorts | where: "slug", page.slug | first %}{% assign vert = r.top_m | minus: r.base_m %}{% assign mid = r.top_m | plus: r.base_m | divided_by: 2 %}{% capture passcls %}{% if r.pass contains "Epic" %}epic{% elsif r.pass contains "Ikon" %}ikon{% else %}ind{% endif %}{% endcapture %}
+{% if r.lat < 0 %}{% assign season = "roughly June to early October (Southern Hemisphere)" %}{% assign best = "mid-July to late August" %}{% else %}{% assign season = "roughly late November/December to April, with high-altitude areas often opening earlier and closing later" %}{% assign best = "mid-January to mid-March" %}{% endif %}{% assign beg = false %}{% for t in r.tags %}{% if t == "family" or t == "beginner" or t == "intermediate" or t == "groomers" or t == "value" %}{% assign beg = true %}{% endif %}{% endfor %}{% assign exp = false %}{% for t in r.tags %}{% if t == "expert" or t == "advanced" or t == "steep" or t == "off-piste" or t == "freeride" %}{% assign exp = true %}{% endif %}{% endfor %}
+{% capture q1 %}When is the ski season at {{ r.name }}?{% endcapture %}{% capture a1 %}The season typically runs {{ season }}. Snow is usually most reliable {{ best }}. Opening and closing dates vary each year; check the resort's official site.{% endcapture %}
+{% capture q2 %}Is {{ r.name }} good for beginners?{% endcapture %}{% capture a2 %}{% if beg %}Yes — it has a reputation for welcoming terrain and services for newer skiers, though every resort has some harder areas. Book a lesson for the best start.{% else %}It's better known for challenging terrain, but most resorts have a beginner zone. First-timers should book lessons and stay on marked easy runs.{% endif %}{% endcapture %}
+{% capture q3 %}Is {{ r.name }} good for advanced skiers?{% endcapture %}{% capture a3 %}{% if exp %}Yes — it's known for terrain that rewards strong skiers. Off-piste and backcountry areas require avalanche equipment, training and ideally a certified guide.{% else %}Advanced skiers will find enough to enjoy, though it is not primarily an expert's mountain.{% endif %}{% endcapture %}
+{% capture q4 %}How do I get to {{ r.name }}?{% endcapture %}{% capture a4 %}The usual gateway is {{ r.airport }}. Many visitors combine a flight with a shuttle, train or rental car; specialist ski travel companies can bundle transfers.{% endcapture %}
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SkiResort","name":{{ r.name | jsonify }},"address":{"@type":"PostalAddress","addressRegion":{{ r.region | jsonify }},"addressCountry":"{{ r.cc }}"},"geo":{"@type":"GeoCoordinates","latitude":{{ r.lat }},"longitude":{{ r.lon }}},"url":"{{ site.url }}{{ page.url }}"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":{{ q1 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a1 | jsonify }}}},{"@type":"Question","name":{{ q2 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a2 | jsonify }}}},{"@type":"Question","name":{{ q3 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a3 | jsonify }}}},{"@type":"Question","name":{{ q4 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a4 | jsonify }}}}]}]}</script>
+<section class="page-hero"><div class="wrap"><div class="crumbs"><a href="{{ site.baseurl }}/index.html">Home</a> / <a href="{{ site.baseurl }}/resorts.html">Resorts</a> / {{ r.name }}</div><h1>{{ r.name }} snow forecast &amp; resort guide</h1><p>{{ r.region }}, {{ r.country }} · {{ r.top_m }} m summit · {{ vert }} m vertical · live 7-day snowfall below.</p></div></section>
+<section style="padding-top:34px"><div class="wrap with-side"><div>
+<div class="sec-head" style="margin-bottom:14px"><div><h2 style="margin:0">7-day snow forecast <span class="live-dot" style="color:var(--pine)">LIVE</span></h2><p class="muted" style="margin:0">Modelled at mid-mountain (~{{ mid }} m). <span id="resort-stamp"></span></p></div><button class="btn btn-ice btn-sm" data-units>Show inches</button></div>
+<div class="stats" id="resort-now" style="margin-bottom:14px"><div><b>…</b><span>7-day snowfall</span></div><div><b>…</b><span>Now</span></div><div><b>…</b><span>Wind</span></div><div><b>…</b><span>Snow depth (model)</span></div></div>
+<div class="fc" id="resort-forecast" data-lat="{{ r.lat }}" data-lon="{{ r.lon }}" data-elev="{{ mid }}"><div>Loading…</div></div>
+<div class="prose" style="margin-top:34px">
+<h2>About {{ r.name }}</h2><p>{{ r.blurb }}</p>
+<div class="table-scroll"><table class="cmp"><tbody>
+<tr><th>Location</th><td>{{ r.region }}, {{ r.country }}</td></tr>
+<tr><th>Elevation</th><td>{{ r.base_m }} m base → {{ r.top_m }} m summit ({{ r.base_m | times: 3.281 | round }}–{{ r.top_m | times: 3.281 | round }} ft)</td></tr>
+<tr><th>Vertical drop</th><td>{{ vert }} m ({{ vert | times: 3.281 | round }} ft)</td></tr>
+<tr><th>Terrain</th><td>{{ r.terrain }}</td></tr>
+<tr><th>Lifts</th><td>~{{ r.lifts }}</td></tr>
+<tr><th>Multi-resort pass</th><td><span class="tag {{ passcls | strip }}">{{ r.pass }}</span></td></tr>
+<tr><th>Nearest airport</th><td>{{ r.airport }}</td></tr>
+<tr><th>Best for</th><td>{% for t in r.tags %}<span class="tag">{{ t | replace: "-", " " }}</span>{% endfor %}</td></tr>
+</tbody></table></div>
+<p class="muted" style="font-size:.85rem">Figures are approximate and for trip-planning comparison. Pass affiliations change every season. Always confirm on the pass provider's and resort's official websites before buying.</p>
+<div class="ad-slot" data-slot="resort"></div>
+<h2>When to go</h2><p>The ski season at {{ r.name }} typically runs {{ season }}. For the best combination of snow depth and conditions, aim for {{ best }}, avoiding local school holidays if you want lower prices and shorter lift lines.</p>
+<h2>Planning tips</h2><ul>
+<li><b>Altitude:</b> {% if r.top_m > 3000 %}the summit is above 3,000 m — take the first day easy, hydrate and watch for altitude symptoms.{% else %}moderate altitude, so most visitors adjust easily; sun and wind exposure still demand good protection.{% endif %}</li>
+<li><b>Lift access:</b> compare advance multi-day tickets with the {{ r.pass }} option before you buy.</li>
+<li><b>Budget:</b> estimate the full cost with our <a href="{{ site.baseurl }}/trip-cost-calculator.html">trip cost calculator</a>.</li>
+<li><b>Safety:</b> read our <a href="{{ site.baseurl }}/safety.html">mountain safety guide</a> and check the local avalanche bulletin before leaving marked runs.</li></ul>
+<h2>More resorts in {{ r.continent }}</h2><div class="grid g3">{% assign same = site.data.resorts | where: "continent", r.continent %}{% assign shown = 0 %}{% for n in same %}{% if n.slug != r.slug and shown < 3 %}{% assign shown = shown | plus: 1 %}<div class="card"><h3 style="font-size:1.02rem"><a href="{{ site.baseurl }}/resorts/{{ n.slug }}.html">{{ n.name }}</a></h3><p class="muted" style="margin:0;font-size:.88rem">{{ n.region }}, {{ n.country }} · {{ n.top_m }} m summit</p></div>{% endif %}{% endfor %}</div>
+<h2>FAQ</h2><details class="faq"><summary>{{ q1 }}</summary><p>{{ a1 }}</p></details><details class="faq"><summary>{{ q2 }}</summary><p>{{ a2 }}</p></details><details class="faq"><summary>{{ q3 }}</summary><p>{{ a3 }}</p></details><details class="faq"><summary>{{ q4 }}</summary><p>{{ a4 }}</p></details>
+</div></div>
+<aside class="side"><div class="card"><h3>Ski {{ r.name }} for less</h3><p class="muted">Get up to 3 free package quotes: lodging, passes, rentals and lessons.</p><a class="btn btn-signal" href="{{ site.baseurl }}/plan-my-trip.html?resort={{ r.name | uri_escape }}">Get free quotes</a></div><div class="ad-slot" data-slot="sidebar"></div><div class="card"><h3>Compare it</h3><p class="muted">See how it stacks up against other resorts.</p><a class="btn btn-ice" href="{{ site.baseurl }}/resorts.html">Open Resort Finder</a></div></aside>
+</div></section>
+{% capture lh %}Ready for {{ r.name }}?{% endcapture %}
+<section class="band"><div class="wrap">{% include lead_block.html h=lh sub="Tell us your dates and group once. Ski travel specialists reply with packaged prices, often below booking each piece separately." %}</div></section>
