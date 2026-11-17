@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | escape }}</title>
+<meta name="description" content="{{ page.description | escape }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+<meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow, max-image-preview:large{% endif %}">
+<meta name="theme-color" content="#0b1b2b">
+<meta property="og:type" content="website"><meta property="og:site_name" content="eSKI">
+<meta property="og:title" content="{{ page.title | escape }}"><meta property="og:description" content="{{ page.description | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url | replace: 'index.html', '' }}"><meta property="og:image" content="https://eski.com/assets/img/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<link rel="icon" href="{{ site.baseurl }}/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "eSKI", "url": "https://eski.com/", "potentialAction": {"@type": "SearchAction", "target": "https://eski.com/resorts.html?q={q}", "query-input": "required name=q"}}, {"@context": "https://schema.org", "@type": "Organization", "name": "eSKI", "url": "https://eski.com/", "logo": "https://eski.com/assets/img/favicon.svg"}]</script>
+{% if page.schema %}<script type="application/ld+json">{{ page.schema }}</script>{% endif %}
+{{ page.extra_head }}
+</head>
+<body data-base="{{ site.baseurl }}/">
+<a class="skip" href="#main">Skip to content</a>
+<div class="topstrip"><a href="{{ site.baseurl }}/contact.html" data-intent>Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
+<header class="site-head"><div class="wrap head-in">
+<a class="logo" href="{{ site.baseurl }}/index.html" aria-label="eSKI home"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#ff5a1f"/><path d="M8 50 L26 22 L34 34 L42 24 L56 50 Z" fill="#0b1b2b"/><path d="M26 22 L31 30 L28 29 L24 33 L22 28 Z M42 24 L46 31 L43 30 L40 33 L38 30 Z" fill="#fff"/></svg><span>e<b>SKI</b></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav" aria-label="Main"><a href="{{ site.baseurl }}/resorts.html"{% if page.nav == "resorts.html" %} aria-current="page"{% endif %}>Resorts</a><a href="{{ site.baseurl }}/snow-forecast.html"{% if page.nav == "snow-forecast.html" %} aria-current="page"{% endif %}>Snow Forecast</a><a href="{{ site.baseurl }}/trip-cost-calculator.html"{% if page.nav == "trip-cost-calculator.html" %} aria-current="page"{% endif %}>Trip Cost</a><a href="{{ site.baseurl }}/learn-to-ski.html"{% if page.nav == "learn-to-ski.html" %} aria-current="page"{% endif %}>Learn</a><a href="{{ site.baseurl }}/gear.html"{% if page.nav == "gear.html" %} aria-current="page"{% endif %}>Gear</a><a href="{{ site.baseurl }}/guides/index.html"{% if page.nav == "guides/index.html" %} aria-current="page"{% endif %}>Guides</a><a href="{{ site.baseurl }}/videos.html"{% if page.nav == "videos.html" %} aria-current="page"{% endif %}>Videos</a><a href="{{ site.baseurl }}/news.html"{% if page.nav == "news.html" %} aria-current="page"{% endif %}>News</a><a class="btn btn-signal" href="{{ site.baseurl }}/plan-my-trip.html">Get Free Trip Quotes</a></nav>
+</div></header>
+<main id="main">
+{{ content }}
+</main>
+<div class="sticky-lead" role="complementary"><p>⛷️ Planning a ski trip? Get up to 3 free quotes from vetted specialists.</p><a class="btn btn-signal btn-sm" href="{{ site.baseurl }}/plan-my-trip.html">Get quotes</a><button class="x" aria-label="Close">×</button></div>
+<footer class="site-foot"><div class="wrap">
+<div class="foot-grid">
+<div><a class="logo" href="{{ site.baseurl }}/index.html"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#ff5a1f"/><path d="M8 50 L26 22 L34 34 L42 24 L56 50 Z" fill="#0b1b2b"/><path d="M26 22 L31 30 L28 29 L24 33 L22 28 Z M42 24 L46 31 L43 30 L40 33 L38 30 Z" fill="#fff"/></svg><span>e<b>SKI</b></span></a>
+<p style="margin-top:14px">Independent ski intelligence: live snow forecasts, resort comparisons, trip costs and learn-to-ski guides for every skier and rider.</p>
+<form class="newsletter" data-form="Newsletter signup" data-ok="You're on the list — powder alerts incoming."><input type="email" name="email" required placeholder="Email for powder alerts" aria-label="Email"><button class="btn btn-signal btn-sm" type="submit">Join</button><div class="hp"><input name="_gotcha" tabindex="-1" autocomplete="off"></div><div class="msg"></div></form></div>
+<div><h4>Explore</h4><ul><li><a href="{{ site.baseurl }}/resorts.html">Resort Finder</a></li><li><a href="{{ site.baseurl }}/snow-forecast.html">Powder Radar</a></li><li><a href="{{ site.baseurl }}/trip-cost-calculator.html">Trip Cost Calculator</a></li><li><a href="{{ site.baseurl }}/gear.html">Ski Size Calculator</a></li><li><a href="{{ site.baseurl }}/guides/index.html">Guides</a></li><li><a href="{{ site.baseurl }}/news.html">Ski News</a></li></ul></div>
+<div><h4>Learn</h4><ul><li><a href="{{ site.baseurl }}/learn-to-ski.html">Learn to Ski</a></li><li><a href="{{ site.baseurl }}/safety.html">Mountain Safety</a></li><li><a href="{{ site.baseurl }}/videos.html">Video Lessons</a></li><li><a href="{{ site.baseurl }}/guides/how-to-choose-a-ski-resort.html">Choosing a Resort</a></li><li><a href="{{ site.baseurl }}/guides/save-money-on-ski-trips.html">Save on Ski Trips</a></li></ul></div>
+<div><h4>Get involved</h4><ul><li><a href="{{ site.baseurl }}/plan-my-trip.html">Free Trip Quotes</a></li><li><a href="{{ site.baseurl }}/for-business.html">List Your Business</a></li><li><a href="{{ site.baseurl }}/advertise.html">Advertise & Sponsor</a></li><li><a href="{{ site.baseurl }}/contests.html">Contests & Prizes</a></li><li><a href="{{ site.baseurl }}/careers.html">Careers & Ambassadors</a></li><li><a href="{{ site.baseurl }}/support.html">Support eSKI</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="{{ site.baseurl }}/about.html">About</a></li><li><a href="{{ site.baseurl }}/contact.html">Contact</a></li><li><a href="{{ site.baseurl }}/editorial-policy.html">Editorial Policy</a></li><li><a href="{{ site.baseurl }}/privacy.html">Privacy Policy</a></li><li><a href="{{ site.baseurl }}/terms.html">Terms of Use</a></li><li><a href="{{ site.baseurl }}/disclaimer.html">Disclaimer</a></li><li><a href="{{ site.baseurl }}/legal.html">Trademark & Copyright</a></li></ul></div>
+</div>
+<div class="foot-legal">© <span data-year>2026</span> eSKI.com. All rights reserved. eSKI is an independent publication and is not affiliated with, endorsed by or sponsored by any ski resort, pass provider or company named on this site, nor with any other business using a similar name. Resort names, pass names and trademarks belong to their respective owners and are used for identification only. Snow and weather data: <a href="https://open-meteo.com/" rel="noopener" target="_blank">Open-Meteo</a> (CC BY 4.0). Skiing is a hazardous activity; always follow resort rules and professional guidance. <a href="{{ site.baseurl }}/legal.html">Full trademark & copyright disclosure</a>.</div>
+</div></footer>
+<script src="{{ site.baseurl }}/assets/js/config.js"></script>
+<script src="{{ site.baseurl }}/assets/js/site.js" defer></script>
+<script src="{{ site.baseurl }}/assets/js/tools.js" defer></script>
+</body></html>

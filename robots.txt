@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /automation/
+
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: https://eski.com/sitemap.xml

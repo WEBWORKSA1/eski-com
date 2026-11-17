@@ -1,0 +1,24 @@
+<form class="form" data-form="Trip quote request" data-multistep data-redirect>
+<h3>Get free quotes for your ski trip</h3><p class="muted" style="margin:0">Takes 60 seconds · no obligation · no spam</p>
+<div class="steps"><i></i><i></i><i></i></div>
+<div class="step">
+ <label>Where do you want to ski?</label><input name="destination" placeholder="e.g. Whistler, Alps, Japan, not sure yet" required>
+ <div class="row"><div><label>Departure city</label><input name="from" placeholder="e.g. Toronto" required></div><div><label>When?</label><select name="when" required><option value="">Choose…</option><option>Within 30 days</option><option>1–3 months</option><option>3–6 months</option><option>Next season</option><option>Flexible</option></select></div></div>
+ <div class="row"><div><label>Adults</label><input name="adults" type="number" min="1" value="2" required></div><div><label>Kids (under 18)</label><input name="kids" type="number" min="0" value="0"></div></div>
+</div>
+<div class="step">
+ <label>What do you need?</label>
+ <div class="chips"><label><input type="checkbox" name="needs" value="Lodging" checked><span>Lodging</span></label><label><input type="checkbox" name="needs" value="Lift passes" checked><span>Lift passes</span></label><label><input type="checkbox" name="needs" value="Flights"><span>Flights</span></label><label><input type="checkbox" name="needs" value="Rentals"><span>Rentals</span></label><label><input type="checkbox" name="needs" value="Lessons"><span>Lessons</span></label><label><input type="checkbox" name="needs" value="Transfers"><span>Transfers</span></label><label><input type="checkbox" name="needs" value="Group / corporate"><span>Group / corporate</span></label><label><input type="checkbox" name="needs" value="Heli / cat skiing"><span>Heli / cat skiing</span></label></div>
+ <div class="row"><div><label>Budget per person</label><select name="budget" required><option value="">Choose…</option><option>Under $1,000</option><option>$1,000–2,500</option><option>$2,500–5,000</option><option>$5,000+</option></select></div><div><label>Ability</label><select name="level"><option>Mixed group</option><option>First-timers</option><option>Beginner</option><option>Intermediate</option><option>Advanced / expert</option></select></div></div>
+</div>
+<div class="step">
+ <div class="row"><div><label>Name</label><input name="name" required autocomplete="name"></div><div><label>Email</label><input name="email" type="email" required autocomplete="email"></div></div>
+ <label>Phone / WhatsApp (optional — faster replies)</label><input name="phone" type="tel" autocomplete="tel">
+ <label>Anything else?</label><textarea name="notes" rows="3" placeholder="Ski-in/ski-out, dates, special requests…"></textarea>
+ <label style="font-weight:600;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="consent" value="yes" required style="width:auto;margin-top:5px"> I agree that eSKI may share my request with up to 3 travel partners to prepare quotes. See the <a href="{{ site.baseurl }}/privacy.html">Privacy Policy</a>.</label>
+</div>
+<div class="hp"><input name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<div class="form-nav"><button class="btn btn-ice" data-back>← Back</button><button class="btn btn-signal" data-next>Continue →</button><button class="btn btn-signal" type="submit">Send my free quote request</button></div>
+<div class="msg"></div>
+<p class="fine">🔒 Your details are never sold. Unsubscribe anytime.</p>
+</form>
