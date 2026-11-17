@@ -1,0 +1,26 @@
+---
+layout: "default"
+title: "Ski Trip Cost Calculator — Budget Your Ski Holiday | eSKI"
+description: "Estimate the full cost of a ski trip: lift tickets, lodging, rentals, lessons, food and travel. Budget, mid-range and luxury presets with per-person and per-day totals."
+nav: "trip-cost-calculator.html"
+---
+<section class="page-hero"><div class="wrap"><div class="crumbs"><a href="{{ site.baseurl }}/index.html">Home</a> / Trip Cost Calculator</div><h1>Ski Trip Cost Calculator</h1><p>Get a realistic total for your trip in 30 seconds. Start from a preset, then adjust any number to match your resort.</p></div></section>
+<section style="padding-top:34px"><div class="wrap with-side">
+<div><form class="tool form" id="trip-calc" style="box-shadow:none" onsubmit="return false">
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px"><button class="btn btn-ice btn-sm" data-preset="budget">Budget preset</button><button class="btn btn-ice btn-sm" data-preset="mid">Mid-range preset</button><button class="btn btn-ice btn-sm" data-preset="lux">Luxury preset</button></div>
+<div class="row"><div><label>People</label><input type="number" name="people" value="2" min="1"></div><div><label>Currency symbol</label><select name="currency"><option value="$">$</option><option value="€">€</option><option value="£">£</option><option value="¥">¥</option><option value="₹">₹</option><option value="CA$">CA$</option></select></div></div>
+<div class="row"><div><label>Ski days</label><input type="number" name="days" value="5" min="1"></div><div><label>Nights</label><input type="number" name="nights" value="6" min="0"></div></div>
+<div class="row"><div><label>Lift ticket / person / day</label><input type="number" name="ticket" value="150"></div><div><label>Lodging / room / night</label><input type="number" name="lodge" value="180"></div></div>
+<div class="row"><div><label>People renting gear</label><input type="number" name="renters" value="2" min="0"></div><div><label>Rental / person / day</label><input type="number" name="rent" value="55"></div></div>
+<div class="row"><div><label>People taking lessons</label><input type="number" name="learners" value="0" min="0"></div><div><label>Lesson / person / day (max 3 days)</label><input type="number" name="lesson" value="120"></div></div>
+<div class="row"><div><label>Food & après / person / day</label><input type="number" name="food" value="75"></div><div><label>Travel / person (flights, fuel)</label><input type="number" name="travel" value="400"></div></div>
+<p class="fine">Lodging assumes 2 people per room. Presets are illustrative ranges, not quotes.</p>
+</form><div class="out" id="trip-out"></div></div>
+<aside class="side"><div class="card"><h3>Why your number may be lower</h3><ul><li>Multi-day and advance lift tickets are often far cheaper than walk-up prices.</li><li>A multi-resort pass can beat day tickets from roughly 5–7 days.</li><li>Packages bundle lodging + passes.</li></ul><a class="btn btn-signal" href="{{ site.baseurl }}/plan-my-trip.html">Get real quotes</a></div><div class="ad-slot" data-slot="sidebar"></div></aside>
+</div></section>
+<section class="band"><div class="wrap prose"><h2>What actually drives the cost of a ski trip</h2>
+<p><b>Lift access</b> is the most variable line. Walk-up day tickets at big-name North American resorts can be several times the price of a pre-purchased multi-day ticket or a multi-resort season pass, while many European and Japanese resorts price six-day passes at a fraction of North American peak rates.</p>
+<p><b>Lodging</b> is usually the biggest single expense. Ski-in/ski-out location adds a premium but can save on parking, shuttles and time. Staying in a valley town and driving up is the classic budget play.</p>
+<p><b>Timing</b> changes everything. Holiday weeks (Christmas–New Year, February school breaks, Presidents' Day, Chinese New Year in Japan) are the most expensive. Early December, mid-January and late March deliver the best value.</p>
+<p>See our <a href="{{ site.baseurl }}/guides/save-money-on-ski-trips.html">15 ways to save on ski trips</a> for a full playbook.</p></div></section>
+
