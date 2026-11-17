@@ -1,0 +1,6 @@
+title: eSKI
+url: "https://eski.com"
+baseurl: ""
+markdown: kramdown
+exclude: [README.md, RESEARCH.md, PROMPTS.md, automation, tools, Gemfile, Gemfile.lock]
+include: [ads.txt]
