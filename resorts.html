@@ -1,0 +1,23 @@
+---
+layout: "default"
+title: "Ski Resort Finder — Compare 45+ Resorts Worldwide | eSKI"
+description: "Search and filter ski resorts by continent, pass and style. See vertical, summit, lifts and live 7-day snowfall, then compare up to three resorts side by side."
+nav: "resorts.html"
+---
+<section class="page-hero"><div class="wrap"><div class="crumbs"><a href="{{ site.baseurl }}/index.html">Home</a> / Resorts</div><h1>Ski Resort Finder</h1><p>Filter 45+ resorts by continent, multi-resort pass and style. Live 7-day snowfall on every card. Select up to three to compare.</p></div></section>
+<section style="padding-top:34px"><div class="wrap">
+<div class="filters">
+<input id="f-q" type="search" placeholder="Search name, country, style…" aria-label="Search">
+<select id="f-cont" aria-label="Continent"><option value="">All continents</option><option>North America</option><option>Europe</option><option>Asia</option><option>Oceania</option><option>South America</option></select>
+<select id="f-pass" aria-label="Pass"><option value="">Any pass</option><option value="Epic">Epic</option><option value="Ikon">Ikon</option><option value="Independent">Independent</option></select>
+<select id="f-tag" aria-label="Style"><option value="">Any style</option><option value="powder">Powder</option><option value="family">Family</option><option value="advanced">Advanced</option><option value="expert">Expert</option><option value="off-piste">Off-piste</option><option value="nightlife">Nightlife</option><option value="apres">Après</option><option value="luxury">Luxury</option><option value="value">Value</option><option value="snow-sure">Snow-sure</option><option value="scenic">Scenic</option><option value="southern-hemisphere">Southern Hemisphere</option></select>
+<select id="f-sort" aria-label="Sort"><option value="name">Sort: A–Z</option><option value="snow">Sort: 7-day snow</option><option value="vertical">Sort: vertical</option><option value="top">Sort: summit</option></select>
+</div>
+<p class="muted"><b id="f-count">…</b> · Figures are approximate and for comparison; confirm details with each resort. <button class="btn btn-ice btn-sm" data-units>Show inches</button></p>
+<div class="grid g3" id="resort-grid"><p>Loading resorts…</p></div>
+<div id="cmp-out" style="margin-top:34px"></div>
+</div></section>
+<div class="cmp-tray" id="cmp-tray"><span>0 of 3 selected</span><button class="btn btn-signal btn-sm" id="cmp-go">Compare</button><button class="btn btn-ghost btn-sm" id="cmp-clear">Clear</button></div>
+<div class="ad-slot" data-slot="in-content"></div>
+<section class="band"><div class="wrap">{% include lead_block.html h="Shortlisted a few? Let the pros quote them." sub="Send your shortlist and travel dates. Specialists reply with packaged prices for each resort so you can compare real costs, not brochure rates." %}</div></section>
+

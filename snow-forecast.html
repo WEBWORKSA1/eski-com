@@ -1,0 +1,26 @@
+---
+layout: "default"
+title: "Powder Radar — Live 7-Day Snow Forecast for Ski Resorts | eSKI"
+description: "Every tracked ski resort ranked by forecast snowfall over the next 7 days, refreshed hourly. Plus a snow forecast lookup for any town or mountain worldwide."
+nav: "snow-forecast.html"
+---
+<section class="page-hero"><div class="wrap"><div class="crumbs"><a href="{{ site.baseurl }}/index.html">Home</a> / Snow Forecast</div><h1>Powder Radar</h1><p>Every tracked resort ranked by forecast snowfall for the next 3 and 7 days, calculated at mid-mountain elevation and refreshed hourly.</p></div></section>
+<section style="padding-top:34px"><div class="wrap">
+<div class="sec-head"><div><h2 style="margin:0">Where it's going to dump <span class="live-dot" style="color:var(--pine)">LIVE</span></h2><p class="muted" id="radar-stamp"></p></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><select id="radar-filter" class="btn btn-ice" aria-label="Filter"><option value="">All resorts</option><option value="Epic">Epic resorts</option><option value="Ikon">Ikon resorts</option><option value="Independent">Independent</option><option>United States</option><option>Canada</option><option>France</option><option>Switzerland</option><option>Austria</option><option>Italy</option><option>Japan</option></select><button class="btn btn-ice" data-units>Show inches</button></div></div>
+<div class="table-scroll"><table class="radar-table" id="radar-table"><thead><tr><th>#</th><th>Resort</th><th>Pass</th><th>Next 72 h</th><th>7 days</th><th></th><th>Today hi/lo</th></tr></thead><tbody><tr><td colspan="7">Loading live forecasts…</td></tr></tbody></table></div>
+</div></section>
+<div class="ad-slot" data-slot="in-content"></div>
+<section class="band"><div class="wrap grid g2" style="align-items:start">
+<div class="tool"><h2>Snow forecast for anywhere</h2><p class="muted">Type any town, resort or mountain to get a 7-day snow and temperature outlook.</p>
+<form id="loc-form" class="searchbar" style="box-shadow:none;border:1.5px solid var(--line)"><input placeholder="e.g. Courchevel, Gudauri, Myoko" aria-label="Location"><button class="btn btn-signal">Forecast</button></form>
+<div id="loc-out" style="margin-top:18px"></div></div>
+<div class="prose"><h2>How to read Powder Radar</h2>
+<p><b>Mid-mountain modelling.</b> Each forecast is computed for the midpoint between a resort's base and summit elevation, which is where most skiing happens. Summits often receive more, bases less.</p>
+<p><b>Snowfall is a model estimate.</b> Numbers come from global and regional weather models via Open-Meteo. Mountain weather is notoriously local, so treat totals as a ranking signal: a resort showing 40 cm is very likely to beat one showing 5 cm, even if the exact total differs.</p>
+<p><b>The 72-hour column is the most reliable.</b> Forecast skill drops quickly after three days. Use the 7-day number to shortlist and the 72-hour number to commit.</p>
+<p><b>Cold matters.</b> Check the temperatures: snowfall with highs near or above 0 °C at mid-mountain can mean heavy, wet snow or rain lower down.</p>
+<div class="note">Forecasts are informational only and are not a substitute for official avalanche bulletins or resort reports. Always check the resort's own conditions page before you travel.</div>
+</div></div></section>
+<section><div class="wrap">{% include lead_block.html h="Powder's coming? Lock in a last-minute deal." sub="Short-notice storm chasing is where specialists earn their keep: last-minute lodging, flexible packages and lift-ticket bundles." %}</div></section>
+
